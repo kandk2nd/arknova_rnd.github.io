@@ -20,3 +20,17 @@ function test(){
     img5.src = srcs[3];
 
 }
+
+const {button, table, thead, tr, th, tbody, td} = van.tags
+
+const RandTable = () => {
+    return table({rule:"none", class:"dataframe"},
+        thead(
+            tr({style:"text-align: right;"}, 
+                ["5","4","3","2","1"].map(n => th(n))
+            )
+        )
+    )
+}
+
+van.add(document.body, RandTable())
