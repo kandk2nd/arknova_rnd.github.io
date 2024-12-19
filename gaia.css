@@ -8,33 +8,44 @@ body {
 }
 
 table {
+    font-weight: bold;
     align: center;
+}
 
+tr {
+    text-align: center;
 }
 
 .header {
     font-size: xx-large;
-
     color: #fffffe;
     background-color: #7f5af0;
-    flex: 1:
 }
 
 .main {
     display: flex;
     flex-direction: column;
+    /* 主軸方向の配置指定 今回は縦*/
+    justify-content: center;
+    /* 交差(副)方向の配置指定 今回は横*/
+    align-items: center;
     margin: auto;
     color: #fffffe;
     background-color: #16161a;
-    flex: 5:
 }
 
 #pink_species {
+    flex: 1;
+    padding: 10px;
+    margin: 5px;
     color: #0e172c;
     background-color: #ffabfb
 }
 
 #blue_species {
+    flex: 1;
+    padding: 10px;
+    margin: 5px;
     color: #0e172c;
     background: #93b0ff
 }

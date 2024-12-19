@@ -24,12 +24,12 @@ function test() {
 
 
 const Header = () => {
-    return div({ class: "header" }, "ARK NOVA Randomizer")
+    return div({ class: "header" }, "Gaia Project Expansion Randomizer")
 }
 
 const RandTable = () => {
     /* spanはそれ自身に機能が無いグループ化用のタグ */
-    return span(
+    return span({ class: "main" },
         table({ onclick: test, id: "pink_species" },
             tr(
                 ["1", "2", "3", "4", "5", "6", "7"].map(n => td(n))
@@ -45,5 +45,5 @@ const RandTable = () => {
     )
 }
 const Randbutton = button({ onclick: test })
-
+test()
 van.add(document.body, Header(), RandTable(), Randbutton)
