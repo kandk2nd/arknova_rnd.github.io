@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>正六角形を詰めて表示</title>
+    <style>
+        .container {
+            /* 必要に応じて調整 */
+            overflow: hidden;
+            /* はみ出しを隠す */
+        }
+
+        .hexagon-row {
+            display: flex;
+            justify-content: center;
+            margin-bottom: -15.32px;
+            /* 高さの半分（sin(60°) * 半径）で調整 */
+        }
+
+        .hexagon {
+            width: 51.96px;
+            /* 2 * 半径 * cos(30°) */
+            height: 60px;
+            /* 2 * 半径 */
+            background-color: #ccc;
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            color: white;
+        }
+
+        /* 奇数行目の調整 */
+        .hexagon-row:nth-child(odd) {
+            margin-left: 50px;
+            /* 幅の半分（半径 * cos(30°)）で調整 */
+        }
+    </style>
+</head>
+
+<body>
+</body>
+<script type=" text/javascript" src="https://cdn.jsdelivr.net/gh/vanjs-org/van/public/van-1.5.3.nomodule.min.js">
+    </script>
+<script src="test04.js"></script>
+
+
+</html>
