@@ -80,15 +80,15 @@ const land_color07 =
 const DivList = () => {
     //1:灰,2:赤,3:黄,4:茶,5:黒,6:青,7:緑の色
     const items = [
-        7,1,3,4,0,6,7,1,2,0,
-        5,6,5,2,0,5,4,6,0,7,
-        0,4,1,7,0,0,3,0,0,3,
-        0,2,3,0,7,0,0,1,4,5,
-        0,0,0,0,5,4,6,3,2,1,
-        0,6,4,0,2,1,0,7,6,3,
-        0,0,5,1,0,0,0,0,0,0,
-        0,3,7,2,3,7,6,5,7,0,
-        0,2,4,1,6,5,4,3,2,1,
+        7, 1, 3, 4, 0, 6, 7, 1, 2, 0,
+        5, 6, 5, 2, 0, 5, 4, 6, 0, 7,
+        0, 4, 1, 7, 0, 0, 3, 0, 0, 3,
+        0, 2, 3, 0, 7, 0, 0, 1, 4, 5,
+        0, 0, 0, 0, 5, 4, 6, 3, 2, 1,
+        0, 6, 4, 0, 2, 1, 0, 7, 6, 3,
+        0, 0, 5, 1, 0, 0, 0, 0, 0, 0,
+        0, 3, 7, 2, 3, 7, 6, 5, 7, 0,
+        0, 2, 4, 1, 6, 5, 4, 3, 2, 1,
     ];  /*ここにクラス名を*/
     const divs = [];
     const MAX_ROW = 10;
@@ -100,21 +100,21 @@ const DivList = () => {
         tmp = [];
         do {
             if (items[i] == 0) {
-                tmp.push(div({ class: "hexagon", style: () => `background-color:#ffffff;`, onclick: () => base_land.val = 0 }, 1+i++));
+                tmp.push(div({ class: "hexagon", style: () => `background-color:#ffffff;`, onclick: () => base_land.val = 0 }, 1 + i++));
             } else if (items[i] == 1) {
-                tmp.push(div({ class: "hexagon", style: () => `background-color:${land_color01[base_land.val]};`, onclick: () => base_land.val = 1 }, 1+i++));
+                tmp.push(div({ class: "hexagon", style: () => `background-color:${land_color01[base_land.val]};`, onclick: () => base_land.val = 1 }, 1 + i++));
             } else if (items[i] == 2) {
-                tmp.push(div({ class: "hexagon", style: () => `background-color:${land_color02[base_land.val]};`, onclick: () => base_land.val = 2 }, 1+i++));
+                tmp.push(div({ class: "hexagon", style: () => `background-color:${land_color02[base_land.val]};`, onclick: () => base_land.val = 2 }, 1 + i++));
             } else if (items[i] == 3) {
-                tmp.push(div({ class: "hexagon", style: () => `background-color:${land_color03[base_land.val]};`, onclick: () => base_land.val = 3 }, 1+i++));
+                tmp.push(div({ class: "hexagon", style: () => `background-color:${land_color03[base_land.val]};`, onclick: () => base_land.val = 3 }, 1 + i++));
             } else if (items[i] == 4) {
-                tmp.push(div({ class: "hexagon", style: () => `background-color:${land_color04[base_land.val]};`, onclick: () => base_land.val = 4 }, 1+i++));
+                tmp.push(div({ class: "hexagon", style: () => `background-color:${land_color04[base_land.val]};`, onclick: () => base_land.val = 4 }, 1 + i++));
             } else if (items[i] == 5) {
-                tmp.push(div({ class: "hexagon", style: () => `background-color:${land_color05[base_land.val]};`, onclick: () => base_land.val = 5 }, 1+i++));
+                tmp.push(div({ class: "hexagon", style: () => `background-color:${land_color05[base_land.val]};`, onclick: () => base_land.val = 5 }, 1 + i++));
             } else if (items[i] == 6) {
-                tmp.push(div({ class: "hexagon", style: () => `background-color:${land_color06[base_land.val]};`, onclick: () => base_land.val = 6 }, 1+i++));
+                tmp.push(div({ class: "hexagon", style: () => `background-color:${land_color06[base_land.val]};`, onclick: () => base_land.val = 6 }, 1 + i++));
             } else if (items[i] == 7) {
-                tmp.push(div({ class: "hexagon", style: () => `background-color:${land_color07[base_land.val]};`, onclick: () => base_land.val = 7 }, 1+i++));
+                tmp.push(div({ class: "hexagon", style: () => `background-color:${land_color07[base_land.val]};`, onclick: () => base_land.val = 7 }, 1 + i++));
             }
         } while (i < items.length && i % MAX_ROW != 0);
         divs.push(div({ class: "hexagon-row" }, ...tmp));
@@ -122,4 +122,18 @@ const DivList = () => {
     return div(...divs); // 配列を展開してdiv要素を並べる
 };
 
-van.add(document.body, DivList());
+van.add(document.body, Tabs(
+    {
+        styele: "max-width: 500px; background-color #ffffff;",
+        tabButtonActiveColor: "#bae8e8",
+        tabButtonRowColor: "#eeeeee",
+        tabButtonBorderStyle: "none",
+        tabButtonRowStyleOverrides: {
+            "padding-left": "12px",
+        },
+    },
+    {
+        AOI13: DivList(),
+        AOI14: div("TBD"),
+    }
+));
