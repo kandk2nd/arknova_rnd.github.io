@@ -1,3 +1,16 @@
+# memo
+- 01 1day/week/month周期で移動or削除
+- 02_calenderはカレンダーアプリへ
+- 03 概要、状況、次に何をやるか、納期の4点
+- 04_Pointerはnotionへ
+- 05_waitは発生しないので省略。必要になったら追加する。
+- 06 1時間以内に達成できそうで、かつ何をすればいいか明確で具体的に記載されたTODO
+# 06_action
+- Soulmask。部族布の為の職人確保
+# 03_project
+# 01_someday
+# 00_inbox
+
 # Flexのお話
 display: flexで親とするやつ
 

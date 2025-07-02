@@ -1,4 +1,4 @@
-const { div, select, input, thead, h2, h4, tbody, option, form } = van.tags
+const { div, select, input, thead, h2, h4, tbody, option, form, disabled } = van.tags
 const lowA = van.state(1)
 const lowB = van.state(1)
 const lowC = van.state(1)
@@ -6,9 +6,9 @@ const population = van.state(1)
 const mid_population = van.state(1)
 const mid_receivable = van.state(1)
 const receivable = van.state(1)
-const worker_tax = van.derive()
-const mid_tax = van.derive()
-const hi_tax = van.derive()
+const worker_tax = van.derive(calc_worker_tax)
+const mid_tax = van.derive(calc_mid_tax)
+const hi_tax = van.derive(calc_hi_tax)
 function calc_worker_tax() {
     const table = [
         [1, 2, 3],
@@ -68,20 +68,32 @@ const Main = () => {
         ),
         div({ class: "workman" },
             h2("Workman"),
+            // 2つのlowの乗算にp掛けだった気がする
             h4("population"),
-            input({ id: "population", type: "number", placeholder: "人口" })
+            input({ id: "population", type: "number", placeholder: "人口" }),
+            h4("tax"),
+            input({ id: "worker_tax", type: "number", placeholder: "人口", disabled }),
         ),
         div({ class: "middle" },
             h2("middle"),
+            // low掛け可変とlow掛け可変indexテーブル参照だった気がする
+            h4("population"),
+            input({ id: "mid_population", type: "number", placeholder: "数" }),
             h4("compeny_num"),
-            input({ type: "number", placeholder: "数" }),
-            h4("compeny_num"),
-            input({ type: "number", placeholder: "数" }),
+            input({ id: "mid_company_num", type: "number", placeholder: "数" }),
+            h4("tax"),
+            input({ id: "mid_tax", type: "number", placeholder: "数", disabled }),
+
         ),
         div({ class: "capitalist" },
+            // low掛け可変と可変掛けlow参照テーブル
             h2("capitalist"),
             h4("capital"),
-            input({ type: "number", placeholder: "数" })
+            input({ type: "number", placeholder: "数" }),
+            h4("compeny_num"),
+            input({ type: "number", placeholder: "数" }),
+            h4("tax"),
+            input({ type: "number", placeholder: "数" }),
         )
 
     )
